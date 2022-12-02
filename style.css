@@ -36,7 +36,7 @@ html {
   h2, h3 {
     margin:0;
     padding:0;
-    padding-bottom:1.5rem;
+    /*padding-bottom:1.5rem;*/
   }
   
   form {
@@ -61,6 +61,9 @@ html {
     flex: 1;
   }
   
+
+
+
   .container {
     margin: 0 20px;
     display: flex;
@@ -104,7 +107,7 @@ html {
     padding: 1.25rem;
     margin:0; /* removing the margin on h1 tags means the header pins to the top if we move */
   
-  
+    text-align: center;
     /* box-shadows are fancy */
     box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
   }
@@ -142,6 +145,7 @@ html {
     flex-grow: 2;
     
   }
+
   .left_section {
    
     background-color: #376D3f;
@@ -151,8 +155,7 @@ html {
     
   }
   
-  
-  
+
   /*
     This block is actually dependent on the "container" block having a flex set on it
     and the "wrapper" block displaying as a flex column with a "vertical height" (vh) of 100.
@@ -209,6 +212,10 @@ html {
     height: 150px;
   }
   
+  .addedinJS {
+    width: 150px;
+    height: 150px;
+  }
   
   /* Carousel */
   div.carousel {
@@ -350,7 +357,10 @@ html {
   
     
   }
-  
+  .global_nav {
+    align-items: left;
+
+  }
   
   * {
     box-sizing: border-box;
