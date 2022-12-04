@@ -360,7 +360,7 @@ form label {
 .global_nav {
   align-items: left;
   display: flex;
-  flex-flow: row;
+  
   margin: 1rem;
 
 }
