@@ -133,6 +133,29 @@ form {
   margin: 0 auto;
 }
 
+.boxForJS {
+  background-color: rgba(239, 239, 239, 0.40);
+  border: 2px solid;
+  border-color: darkolivegreen;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 300px;
+  text-align: center;
+  height:fit-content;
+  padding: .5rem;
+  margin: 0 auto;
+  font-size: small;
+}
+.boxForJS img {
+  width: 250px;
+  height: auto;
+  align-self: center;
+  border-radius: 15px;
+  
+}
+
 .right_section {
   
   background-color: #BCD8C1;
@@ -212,9 +235,18 @@ form {
   height: 150px;
 }
 
-.addedinJS {
-  width: 150px;
-  height: 150px;
+/* 
+  These rules apply to actual HTML elements with no labelling!
+  So: they style the tags directly
+*/
+/*Map Stlye*/
+
+#map { 
+  display: block;
+  height: 380px; 
+  width: 400px;
+  border: 2px solid rgb(0, 68, 8);
+  margin-bottom: 1rem;
 }
 
 /* Carousel */
@@ -325,6 +357,13 @@ form label {
     .box {
       width: inherit;
     }
+    .boxForJS{
+      width: inherit;
+    }
+
+    .boxForJS img {
+      width: -webkit-fill-available;
+    }
     .container {
       
       flex-direction: column;
@@ -355,6 +394,10 @@ form label {
       width: -webkit-fill-available;
     }
 
+    #map {
+      width: -webkit-fill-available;
+    }
+
   
 }
 .global_nav {
@@ -369,19 +412,7 @@ form label {
   box-sizing: border-box;
 }
 
-/* 
-  These rules apply to actual HTML elements with no labelling!
-  So: they style the tags directly
-*/
-/*Map Stlye*/
 
-#map { 
-  display: block;
-  height: 380px; 
-  width: 400px;
-  border: 2px dashed rgb(15, 14, 14);
-  margin-bottom: 1rem;
-}
 
 
 /* 
@@ -451,4 +482,17 @@ form label {
   .chart_container {
     height: 100%;
     width: 100%;
+  }
+
+  .unique {
+    border-style: dotted;
+  }
+
+  .parkNameFont {
+    font-size: large;
+    font-weight: bolder;
+  }
+
+  .parkDescriptionFormatting {
+    text-align: justify;
   }
