@@ -5,6 +5,20 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (newMax - newMin) + newMin); // The maximum is exclusive and the minimum is inclusive
 }
 
+function injectCarouselHTML(list) {
+  const target = document.querySelector('#pictures_caro');
+  let itemState = "";
+  list.forEach((item) => {
+    itemState = item.states;
+  });
+  //target.innerHTML = '';
+  let divBlock = document.createElement('div');
+  divBlock.classList.add('slides');
+
+  target.appendChild(divBlock);
+
+}
+
 function injectHTML(list) {
   console.log('fired injectHTML');
   const target = document.querySelector('#restaurant_list');
@@ -17,28 +31,45 @@ function injectHTML(list) {
   //target.appendChild(itemState);
   const listEl = document.createElement('ol');
   target.appendChild(listEl);
-  let indexNum = 0;
+  
   
   list.forEach((item) => {
     itemState = item.states;
     const el = document.createElement('li');
-    el.innerText = item.fullName;
+    const spanForText = document.createElement('span');
+    spanForText.setAttribute('class', 'parkNameFont');
+    const parkName = document.createTextNode(item.fullName);
+    spanForText.appendChild(parkName);
+    //parkName.classList.add('parkNameFont');
+    el.appendChild(spanForText);
     listEl.appendChild(el);
-    let text = document.createTextNode(item.description)
-    //text.classList.add("grid");
-    listEl.appendChild(text)
+    const spanForDescription = document.createElement('span');
+    spanForDescription.setAttribute('class', 'parkDescriptionFormatting');
     
-      var img = document.createElement('img');
-      let arrayOfImages= item.images;
-      let dictAtArray0 = arrayOfImages[0]
-      let imageUrl = dictAtArray0['url']
-      console.log(imageUrl, 'IMAGEs URL');
-     // console.log(dictVal, ' i think URL')
-      img.src = imageUrl;
-      img.classList.add("addedinJS");
-      listEl.appendChild(img);
-      indexNum ++;
-
+    const text = document.createTextNode(item.description);
+    spanForDescription.appendChild(text);
+    listEl.appendChild(spanForDescription);
+    //Creating a divider
+    let divBlock = document.createElement('div');
+    //Adding the class for the div to format in CSS
+    divBlock.classList.add('boxForJS');
+    //Appending the div into the list
+    listEl.appendChild(divBlock);
+    //Creating an image element
+    var img = document.createElement('img');
+    let arrayOfImages= item.images;
+    let dictAtArray0 = arrayOfImages[0]
+    let imageUrl = dictAtArray0['url']
+    console.log(imageUrl, 'IMAGEs URL');
+    //Assiging the URL for images
+    img.src = imageUrl;
+    //Getting the caption for the image
+    let imageCaption = dictAtArray0['caption'];
+    //Creating text element
+    let caption = document.createTextNode(imageCaption);
+    img.classList.add("addedinJS");
+    divBlock.appendChild(img);
+    divBlock.appendChild(caption);
   });
  
 }
@@ -58,17 +89,7 @@ function processRestaurants(list) {
 
 }
 
-// function filterParks(list) {
-//   return list.filter((item) => {
-//     const lowerCaseName = item.fullName.toLowerCase
-//     console.log(lowerCaseName, 'HELLOO>>???')
-//     if (!lowerCaseName.includes('park')) {
-//       return;
-//     }
-    
-//     return list;
-//   });
-// }
+
 function filterList(list, filterInputValue) {
   return list.filter((item) => {
     console.log(item.fullName.includes('Park'), 'what is going on here')
