@@ -24,13 +24,20 @@ body {
   font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
   font-weight: 400;
   line-height: 1.5;
-  background-color: #fbede1;
+  background-color: #fff9f4;
 }
 
 
-a {
+a:link {
   display: inline-block;
   text-decoration: none;
+  color: brown;
+}
+
+a:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: brown;
 }
 
 h2, h3 {
@@ -94,17 +101,17 @@ form {
   /* this will push other blocks out of the way */
 
   /* colors */
-  background-color: #624763;
-  color: #F9B3D1;
+  background-color: #bfa7b4;
+  color: #004724;
 
   /* shapes */
-  border: 4px dashed;
-  border-style: inset;
+  border: 3px;
+  border-style: ridge;
   border-color: #63A375;
-  border-radius: 25px;
+  border-radius: 5px;
   
   font-size: 1.5rem;
-  padding: 1.25rem;
+  padding: .25rem;
   margin:0; /* removing the margin on h1 tags means the header pins to the top if we move */
 
   text-align: center;
@@ -131,6 +138,14 @@ form {
   height:fit-content;
   padding: 1.5rem;
   margin: 0 auto;
+}
+
+.global {
+  padding: .5rem;
+  background-color: rgb(174, 204, 178);
+  border: none;
+    border-bottom-color: rgb(105, 105, 105);
+    border-bottom-style: solid;
 }
 
 .boxForJS {
@@ -495,4 +510,8 @@ form label {
 
   .parkDescriptionFormatting {
     text-align: justify;
+  }
+
+  hr {
+    border-top: 1px solid rgb(120, 120, 120);
   }
