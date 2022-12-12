@@ -25,7 +25,7 @@
         <div class="global_nav">
           <hr>
           <div class="box global">
-            <h3>Home</h3>
+            <h3><a href="index.html"> Home</a></h3>
           </div>
           <hr>
           <div class="box global">
@@ -33,35 +33,30 @@
           </div>
           <hr>
           <div class="box global">
-            <h3 <a href="favParks.html">My Favorite Parks</a></h3>
+            <h3> <a href="favParks.html">My Favorite Parks</a></h3>
           </div>
           <hr>
         </div>
       <hr>
       </div>
       <div class="container">
-        <div class="left_section box right_section_box">
-            <h3>Filter State Parks and Memorials</h3>
-          <form action="/api" class="box main_form">
-            <div>
-                <label for="resto">Filter by State Code (Ex: DE)</label>
-                <input type="text" name="resto" id="resto" />
+        <div class="boxNotJS">
+            <h2>Here are my top 5 favorite parks:</h2>
+            <div class="right_section box">
+                <ol>
+                    <li><a href="https://www.nps.gov/acad/index.htm">Acadia National Park</a>
+                        <div class="boxNotJS">
+                        <a target="_blank" href="https://www.nps.gov/acad/index.htm">
+                        <img src="https://www.nps.gov/common/uploads/structured_data/3C7B45AE-1DD8-B71B-0B7EE131C7DFC2F5.jpg">
+                        </a>
+                    </div>
+                    </li>
+                </ol>
             </div>
-            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-            <button type="submit" id="get-parks">Change Parks</button>
-          </form>
+            
         </div>
-        <div class="right_section box right_section_box">
-          <h3>National Parks</h3>
-         <div id="map"></div>
-          <div class="box" id="restaurant_list">
-            A list of National Parks
-          </div>
-        </div>
-        
       </div>
-     
     </div>
-    <script src="./script.js"></script>
+   
   </body>
 </html>

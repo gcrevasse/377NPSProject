@@ -165,9 +165,28 @@ form {
   height: auto;
   align-self: center;
   border-radius: 15px;
-  
 }
-
+.boxNotJS {
+  background-color: rgba(239, 239, 239, 0.40);
+  border: 2px solid;
+  border-color: darkolivegreen;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  width: 300px;
+  text-align: center;
+  height:fit-content;
+  padding: .5rem;
+  margin: 0 auto;
+  font-size: small;
+}
+.boxNotJS img {
+  width: 250px;
+  height: auto;
+  align-self: center;
+  border-radius: 15px;
+}
 .right_section {
   
   background-color: #BCD8C1;
@@ -369,9 +388,19 @@ form label {
     .box {
       width: inherit;
     }
+
+   
     .boxForJS{
       width: inherit;
     }
+    .boxNotJS{
+      width: -webkit-fill-available;
+    }
+
+    .boxNotJS img{
+      width: -webkit-fill-available;
+    }
+
 
     .boxForJS img {
       width: -webkit-fill-available;

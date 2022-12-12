@@ -37,7 +37,7 @@ function injectCarouselHTML(list) {
 
 function injectHTML(list) {
   console.log('fired injectHTML');
-  const target = document.querySelector('#restaurant_list');
+  const target = document.querySelector('#parks_list');
   let itemState = "";
   list.forEach((item) => {
     itemState = item.states;
@@ -62,8 +62,8 @@ function injectHTML(list) {
  
 }
 
-function processRestaurants(list) {
-  console.log('fired restaurants list');
+function processParks(list) {
+  console.log('fired parks list');
   const range = [...Array(15).keys()];
   const newArray = range.map((item) => {
     const index = getRandomIntInclusive(0, list.length);
@@ -79,7 +79,6 @@ function processRestaurants(list) {
 
 function filterList(list, filterInputValue) {
   return list.filter((item) => {
-    console.log(item.fullName.includes('Park'), 'what is going on here')
     if (!item.fullName) {
       return;
     }
@@ -87,27 +86,7 @@ function filterList(list, filterInputValue) {
     const lowerCaseName = item.fullName.toLowerCase();
     const lowerCaseQuery = filterInputValue.toLowerCase();
     const lowerCaseState = item.states.toLowerCase();
-    console.log(lowerCaseState, 'THE STATE')
-    console.log(lowerCaseName.includes(lowerCaseQuery), 'HERES THE RETURN')
-    //omfg im so stupid ok now its searching for the state
-  
     return lowerCaseState.includes(lowerCaseQuery) & item.fullName.includes('Park');
-    //return lowerCaseName.includes(lowerCaseQuery);
-  });
-}
-
-function filterState(list, filterInputValue) {
-  return list.filter((item) => {
-    if (!item.fullName.includes('Park')) {
-      return;
-    }
-    
-    const lowerCaseName = item.fullName.toLowerCase();
-    const lowerCaseQuery = filterInputValue.toLowerCase();
-    const lowerCaseState = item.states
-    console.log(lowerCaseState, 'THE STATE')
-    console.log(lowerCaseName.includes(lowerCaseQuery), 'HERES THE RETURN')
-    return lowerCaseState.includes(lowerCaseQuery);
   });
 }
 
@@ -123,7 +102,6 @@ function initMap() {
 
 function markerPlace(array, map) {
   console.log('markerPlace', array);
-  // const marker = L.marker([51.5, -0.09]).addTo(map);
   map.eachLayer((layer) => {
     if (layer instanceof L.Marker) {
       layer.remove();
@@ -141,18 +119,6 @@ function markerPlace(array, map) {
   });
 }
 
-
-
-function shapeDataForLineChart(array) {
-  return array.reduce((collection, item) => {
-    if(!collection[item.is_potentially_hazardous_asteroid]) {
-      collection[item.is_potentially_hazardous_asteroid] = [item]
-    } else {
-      collection[item.is_potentially_hazardous_asteroid].push(item);
-    }
-    return collection;
-  }, {})
-}
 
 async function getData() {
   const url = 'https://developer.nps.gov/api/v1/parks?limit=400&api_key=CmhsFh8PrYpbQG2jmRIqjSZdhG8LnY0yy10nhguh'; // remote URL! you can test it in your browser
@@ -173,10 +139,7 @@ async function mainEvent() {
   const chartTarget = document.querySelector('#myChart');
   submit.style.display = 'none'; // let your submit button disappear
   const chartData = await getData();
- 
-
   let currentList = [];
-
   submit.style.display = 'block'; 
   loadAnimation.classList.remove('lds-ellipsis');
   loadAnimation.classList.add('lds-ellipsis_hidden');
@@ -184,30 +147,18 @@ async function mainEvent() {
   form.addEventListener('input', (event) => {
     console.log(event.target.value, "in the event listener!");
     const newFilteredList = filterList(chartData, event.target.value);
-    //right here we need to do
-    //const newFilteredList = filterList(chartData, event.target.value);
-    console.log(newFilteredList, 'ok so when it is being filtered and called we need to call states with this result')
     injectHTML(newFilteredList);
     markerPlace(newFilteredList, pageMap);
   });
  
 
   form.addEventListener('submit', (submitEvent) => {
-    // This is needed to stop our page from changing to a new URL even though it heard a GET request
     submitEvent.preventDefault();
-      
-      // This constant will have the value of your 15-restaurant collection when it processes
-      currentList = processRestaurants(chartData);
-      //const parksList = filterParks(currentList);
+      currentList = processParks(chartData);
       console.log(currentList);
-  
-      // And this function call will perform the "side effect" of injecting the HTML list for you
       injectHTML(currentList);
-      injectCarouselHTML(currentList);
       markerPlace(currentList, pageMap);
     });
-
-   
   }
   
 
