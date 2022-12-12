@@ -4,15 +4,37 @@ function getRandomIntInclusive(min, max) {
   const newMax = Math.floor(max);
   return Math.floor(Math.random() * (newMax - newMin) + newMin); // The maximum is exclusive and the minimum is inclusive
 }
-
-function injectState(list) {
+function injectCarouselHTML(list) {
+  const target = document.querySelector('#pictures_caro');
   let itemState = "";
+  let counter = 0;
   list.forEach((item) => {
-    //we needx to f
     itemState = item.states;
+     //target.innerHTML = '';
+  let divBlock = document.createElement('div');
+  if(counter == 0) {
+    divBlock.classList.add('carousel_item', 'visible');
+  } else {
+    divBlock.classList.add('carousel_item', 'hidden');
+  }
+ 
+  //Creating an image element
+  var img = document.createElement('img');
+  let arrayOfImages= item.images;
+  let dictAtArray0 = arrayOfImages[0]
+  let imageUrl = dictAtArray0['url']
+  console.log(imageUrl, 'IMAGEs URL');
+  //Assiging the URL for images
+  img.src = imageUrl;
+  img.id = 'slide'
+  divBlock.appendChild(img);
+  target.appendChild(divBlock);
+  counter ++;
   });
-  target.innerHTML = itemState;
+ 
+
 }
+
 function injectHTML(list) {
   console.log('fired injectHTML');
   const target = document.querySelector('#restaurant_list');
@@ -21,42 +43,21 @@ function injectHTML(list) {
     itemState = item.states;
   });
   target.innerHTML = '';
-  
-  //target.appendChild(itemState);
   const listEl = document.createElement('ol');
   target.appendChild(listEl);
-  
-  
-  
+
   list.forEach((item) => {
     itemState = item.states;
     const el = document.createElement('li');
     el.innerText = item.fullName;
     listEl.appendChild(el);
-    
-                
-    // Create anchor element.
+
     var a = document.createElement('a'); 
-      
-    // Create the text node for anchor element.
     var link = document.createTextNode(item.states);
-      
-    // Append the text node to anchor element.
     a.appendChild(link); 
-      
-    // Set the title.
     a.title = item.states; 
-      
-    // Set the href property.
     a.href = "secondPage.html"; 
-      
-    // Append the anchor element to the body.
-    
-    console.log(a, "WHAT DOES A ACTUALLY LOOK LIKE")
     listEl.appendChild(a); 
-    // const description = document.createTextNode('\n\n' + item.description);
-    // listEl.appendChild(description);
-   
   });
  
 }
@@ -82,8 +83,7 @@ function filterList(list, filterInputValue) {
     if (!item.fullName) {
       return;
     }
-    
-    
+
     const lowerCaseName = item.fullName.toLowerCase();
     const lowerCaseQuery = filterInputValue.toLowerCase();
     const lowerCaseState = item.states.toLowerCase();
@@ -190,6 +190,7 @@ async function mainEvent() {
     injectHTML(newFilteredList);
     markerPlace(newFilteredList, pageMap);
   });
+ 
 
   form.addEventListener('submit', (submitEvent) => {
     // This is needed to stop our page from changing to a new URL even though it heard a GET request
@@ -202,8 +203,57 @@ async function mainEvent() {
   
       // And this function call will perform the "side effect" of injecting the HTML list for you
       injectHTML(currentList);
+      injectCarouselHTML(currentList);
       markerPlace(currentList, pageMap);
     });
+
+    document.querySelector('.next') // Get the appropriate element (<button class="next">)
+    .addEventListener('click', () => { // set an event listener on it - when it's clicked, do this callback function
+      console.log('clicked next'); // let's tell the client console we made it to this point in the script
+      moveToNextSlide(); // call the function above to handle this
+    });
+  
+  document.querySelector('.prev')
+    .addEventListener('click', () => {
+      console.log('clicked prev');
+      moveToPrevSlide();
+    });
+    let slidePosition = 0;
+
+const slides = document.querySelectorAll('.carousel_item');
+console.log(slides, ' THIS SHOULD BE THE SLIDES')
+const slidesArray = Array.from(slides);
+
+
+const totalSlides = slidesArray.length;
+
+function updateSlidePosition() {
+  slidesArray.forEach((slide) => {
+    slide.classList.remove('visible');
+    slide.classList.add('hidden');
+  });
+  console.log(slidePosition);
+  slides[slidePosition].classList.add('visible');
+ 
+}
+
+function moveToNextSlide() {
+  if (slidePosition === totalSlides - 1) {
+    slidePosition = 0;
+  } else {
+    slidePosition += 1;
+  }
+
+  updateSlidePosition(); 
+}
+function moveToPrevSlide() {
+  if (slidePosition === 0) {
+    slidePosition = totalSlides - 1;
+  } else {
+    slidePosition -= 1;
+  }
+  updateSlidePosition();
+}
   }
   
 

@@ -32,7 +32,6 @@
           <hr>
           <div class="box global">
             <h3><a href='secondPage.html'>Maryland Parks</a></h3>
-           
           </div>
           <hr>
          </div>
@@ -40,7 +39,7 @@
         </div>
       <div class="container">
         
-        <div class="left_section box">
+        <div class="left_section box right_section_box">
             <h3>Filter State Parks and Memorials</h3>
           <form action="/api" class="box main_form">
             <div>
@@ -51,15 +50,23 @@
             <button type="submit" id="get-parks">Change Parks</button>
           </form>
         </div>
-        <div class="right_section box">
+        <div class="right_section box right_section_box">
           <h3>National Parks</h3>
          <div id="map"></div>
           <div class="box" id="restaurant_list">
             A list of National Parks
           </div>
         </div>
+        
       </div>
-      
+      <div class="carousel"> 
+        <button class="prev">prev</button>
+        <!--im going to insert the carosel here-->
+        <div class="slides" id="pictures_caro">
+        
+        </div>
+        <button class="next">next</button>
+      </div>
     </div>
     <script src="./script.js"></script>
   </body>

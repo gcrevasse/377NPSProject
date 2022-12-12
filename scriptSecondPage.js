@@ -5,19 +5,7 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (newMax - newMin) + newMin); // The maximum is exclusive and the minimum is inclusive
 }
 
-function injectCarouselHTML(list) {
-  const target = document.querySelector('#pictures_caro');
-  let itemState = "";
-  list.forEach((item) => {
-    itemState = item.states;
-  });
-  //target.innerHTML = '';
-  let divBlock = document.createElement('div');
-  divBlock.classList.add('slides');
 
-  target.appendChild(divBlock);
-
-}
 
 function injectHTML(list) {
   console.log('fired injectHTML');

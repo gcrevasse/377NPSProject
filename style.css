@@ -28,17 +28,14 @@ body {
 }
 
 
-a:link {
+
+
+a {
   display: inline-block;
   text-decoration: none;
   color: brown;
 }
 
-a:visited {
-  display: inline-block;
-  text-decoration: none;
-  color: brown;
-}
 
 h2, h3 {
   margin:0;
@@ -514,4 +511,8 @@ form label {
 
   hr {
     border-top: 1px solid rgb(120, 120, 120);
+  }
+  .right_section_box {
+    border: solid;
+    border-color: black;
   }
