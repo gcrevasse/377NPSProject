@@ -52,8 +52,6 @@ form {
 }
 
 
-
-
 .container {
   margin: 0 20px;
   display: flex;
@@ -204,41 +202,6 @@ form {
   
 }
 
-
-/*
-  This block is actually dependent on the "container" block having a flex set on it
-  and the "wrapper" block displaying as a flex column with a "vertical height" (vh) of 100.
-  That serves to cram the footer to the bottom of the page.
-*/
-
-.footer {
-  flex-shrink: 0;
-  padding: 1rem;
-  background-color: #D8A48F;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border: 4px double;
-  border-radius: 6px;
-}
-
-.footer a {
-  color: #624763;
-  text-decoration: underline;
-}
-
-/*
-  This is an example of a 'pseudoclass'
-  In this instance, it says what to do if a mouse hovers over a link
-  This is pretty desktop-specific, since there's no hover function on touchscreens
-*/
-.footer a:hover {
-  /* Hue, saturation, luminosity, alpha */
-  background-color: hsla(0, 0%, 90%, 0.15);
-  /* red, green, blue, alpha */
-  color: rgb(246, 169, 93);
-  text-decoration: none;
-}
-
 .subtitle {
   color: rgba(0, 0, 0, 0.8);
   margin: 0px;
@@ -246,25 +209,6 @@ form {
 }
 
 
-/* Deploy this with images as direct "children" and the images should pop into shape */
-.grid {
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: wrap;
-  width: 350px;
-  height: 350px;
-  margin: 0 auto;
-}
-
-.grid img {
-  width: 150px;
-  height: 150px;
-}
-
-/* 
-  These rules apply to actual HTML elements with no labelling!
-  So: they style the tags directly
-*/
 /*Map Stlye*/
 
 #map { 
@@ -275,77 +219,7 @@ form {
   margin-bottom: 1rem;
 }
 
-/* Carousel */
-div.carousel {
-  max-width: 300px;
-  overflow: hidden;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-}
 
-.carousel .slides {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* .carousel_item, */
-.hidden {
-  display: none;
-}
-
-.visible {
-  display: block;
-}
-
-.carousel_item img {
-  /* 
-    Setting width, rather than max-width or min-width,
-    means annoying pop-ins won't happen
-    but it also means you need to format your images to be compatible
-    or they will stretch weird
-
-    - try a tall one and see what happens
-    - change the height on a fixed image size and see what happens
-    - now make sure that images are _always_ square
-    - ... there's a reason crop tools are popular in image editors
-   */
-  width: 150px; 
-}
-
-.prev,
-.next {
-  border: none;
-  margin: 2px;
-  text-align: center;
-  border-radius: 5px;
-  font-weight: bold;
-  height: 45px;
-  padding: 10px;
-  line-height: 0; /* This centers a button's text! */
-  border: 2px solid rgb(255, 142, 232); /* shorthand for how to do a border */
-}
-
-.prev:focus,
-.next:focus {
-  margin: 0;
-  color: rgba(255, 55, 182, 0.8);
-  /* Pick a good border colour and check out how it works with your buttons */
-}
-
-.prev:hover,
-.next:hover {
-  color: rgba(0, 42, 136, 0.8);
-  background-color: hsla(303, 97%, 27%, 0.32);
-  /* Pick a good background colour for your hover pseudoclass */
-}
 
 /*
 Form Styles
