@@ -21,9 +21,9 @@ function injectHTML(list) {
     //parkName.classList.add('parkNameFont');
     el.appendChild(spanForText);
     listEl.appendChild(el);
+    //Creating the description
     const spanForDescription = document.createElement('span');
     spanForDescription.setAttribute('class', 'parkDescriptionFormatting');
-    
     const text = document.createTextNode(item.description);
     spanForDescription.appendChild(text);
     listEl.appendChild(spanForDescription);
@@ -38,7 +38,7 @@ function injectHTML(list) {
     let arrayOfImages= item.images;
     let dictAtArray0 = arrayOfImages[0]
     let imageUrl = dictAtArray0['url']
-    //Assiging the URL for images
+    //Assigning the URL for images
     img.src = imageUrl;
     //Getting the caption for the image
     let imageCaption = dictAtArray0['caption'];
