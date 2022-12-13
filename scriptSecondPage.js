@@ -9,14 +9,12 @@ function getRandomIntInclusive(min, max) {
 
 function injectHTML(list) {
   console.log('fired injectHTML');
-  const target = document.querySelector('#restaurant_list');
+  const target = document.querySelector('#parks_list');
   let itemState = "";
   list.forEach((item) => {
     itemState = item.states;
   });
   target.innerHTML = '';
-  
-  //target.appendChild(itemState);
   const listEl = document.createElement('ol');
   target.appendChild(listEl);
   
@@ -48,7 +46,6 @@ function injectHTML(list) {
     let arrayOfImages= item.images;
     let dictAtArray0 = arrayOfImages[0]
     let imageUrl = dictAtArray0['url']
-    console.log(imageUrl, 'IMAGEs URL');
     //Assiging the URL for images
     img.src = imageUrl;
     //Getting the caption for the image
@@ -62,20 +59,6 @@ function injectHTML(list) {
  
 }
 
-function processRestaurants(list) {
-  console.log('fired restaurants list');
-  const range = [...Array(15).keys()];
-  const newArray = range.map((item) => {
-    const index = getRandomIntInclusive(0, list.length);
-    return list[index];
-  });
-  /* newArray.forEach((item) => {
-
-      }); */
-  return newArray;
-
-
-}
 
 
 function filterList(list, filterInputValue) {
@@ -87,7 +70,6 @@ function filterList(list, filterInputValue) {
     if(item.fullName.includes('Baltimore')) {
       return;
     }
-    
     
     const lowerCaseName = item.fullName.toLowerCase();
     const lowerCaseQuery = filterInputValue.toLowerCase();
@@ -101,20 +83,6 @@ function filterList(list, filterInputValue) {
   });
 }
 
-function filterState(list, filterInputValue) {
-  return list.filter((item) => {
-    if (!item.fullName.includes('Park')) {
-      return;
-    }
-    
-    const lowerCaseName = item.fullName.toLowerCase();
-    const lowerCaseQuery = filterInputValue.toLowerCase();
-    const lowerCaseState = item.states
-    console.log(lowerCaseState, 'THE STATE')
-    console.log(lowerCaseName.includes(lowerCaseQuery), 'HERES THE RETURN')
-    return lowerCaseState.includes(lowerCaseQuery);
-  });
-}
 
 function initMap() {
   console.log('initMap');
@@ -147,18 +115,6 @@ function markerPlace(array, map) {
 }
 
 
-
-function shapeDataForLineChart(array) {
-  return array.reduce((collection, item) => {
-    if(!collection[item.is_potentially_hazardous_asteroid]) {
-      collection[item.is_potentially_hazardous_asteroid] = [item]
-    } else {
-      collection[item.is_potentially_hazardous_asteroid].push(item);
-    }
-    return collection;
-  }, {})
-}
-
 async function getData() {
   const url = 'https://developer.nps.gov/api/v1/parks?limit=400&api_key=CmhsFh8PrYpbQG2jmRIqjSZdhG8LnY0yy10nhguh'; // remote URL! you can test it in your browser
   const data = await fetch(url); // We're using a library that mimics a browser 'fetch' for simplicity
@@ -170,16 +126,12 @@ async function getData() {
 }
 
 async function mainEvent() {
-   const pageMap = initMap();
- 
+  const pageMap = initMap();
   const chartData = await getData();
- 
   const newFilteredList = filterList(chartData, 'MD');
-  // And this function call will perform the "side effect" of injecting the HTML list for you
   injectHTML(newFilteredList);
   markerPlace(newFilteredList, pageMap);
   let currentList = [];
-  
 }
 
 

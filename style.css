@@ -1,6 +1,4 @@
-/* CSS instructions for Lab 5 */
-/* Bring in your successful CSS from week 4 */
-/* In your #map rule, set map to display:none; to temporarily hide your map box */
+
 html {
   background-color: #feeada;
   font-size: 16px;
@@ -22,7 +20,7 @@ body {
   padding: 0;
 
   font-family: ‘Segoe UI’, Candara, ‘Bitstream Vera Sans’, ‘DejaVu Sans’, ‘Bitsream Vera Sans’, ‘Trebuchet MS’, Verdana, ‘Verdana Ref’, sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
   background-color: #fff9f4;
 }
@@ -137,6 +135,11 @@ form {
   margin: 0 auto;
 }
 
+.parksIMG{
+  width: 550px;
+  height: auto;
+}
+
 .global {
   padding: .5rem;
   background-color: rgb(174, 204, 178);
@@ -198,6 +201,17 @@ form {
   flex-flow: column;
   flex-grow: 2;
   
+}
+
+.parks_box {
+  background-color: #d9ebdc;
+  flex: 1 2 auto; 
+  margin: .5rem;
+  align-items: center;
+  border: 1px solid;
+  display: flex;
+  flex-flow: column;
+  flex-grow: 2;
 }
 
 .left_section {
@@ -389,6 +403,14 @@ form label {
       width: inherit;
     }
 
+    .global {
+      width: min-content;
+    }
+
+    .parksIMG {
+      max-width: 100%;
+    }
+
    
     .boxForJS{
       width: inherit;
@@ -432,6 +454,9 @@ form label {
       display: flex;
       flex-flow: column;
       align-items: stretch;
+      width: -webkit-fill-available;
+    }
+    .parks_box {
       width: -webkit-fill-available;
     }
 
@@ -526,7 +551,8 @@ form label {
   }
 
   .unique {
-    border-style: dotted;
+    border-style: solid;
+    border-color: #376D3f;
   }
 
   .parkNameFont {

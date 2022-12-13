@@ -4,36 +4,8 @@ function getRandomIntInclusive(min, max) {
   const newMax = Math.floor(max);
   return Math.floor(Math.random() * (newMax - newMin) + newMin); // The maximum is exclusive and the minimum is inclusive
 }
-function injectCarouselHTML(list) {
-  const target = document.querySelector('#pictures_caro');
-  let itemState = "";
-  let counter = 0;
-  list.forEach((item) => {
-    itemState = item.states;
-     //target.innerHTML = '';
-  let divBlock = document.createElement('div');
-  if(counter == 0) {
-    divBlock.classList.add('carousel_item', 'visible');
-  } else {
-    divBlock.classList.add('carousel_item', 'hidden');
-  }
- 
-  //Creating an image element
-  var img = document.createElement('img');
-  let arrayOfImages= item.images;
-  let dictAtArray0 = arrayOfImages[0]
-  let imageUrl = dictAtArray0['url']
-  console.log(imageUrl, 'IMAGEs URL');
-  //Assiging the URL for images
-  img.src = imageUrl;
-  img.id = 'slide'
-  divBlock.appendChild(img);
-  target.appendChild(divBlock);
-  counter ++;
-  });
  
 
-}
 
 function injectHTML(list) {
   console.log('fired injectHTML');
@@ -49,15 +21,28 @@ function injectHTML(list) {
   list.forEach((item) => {
     itemState = item.states;
     const el = document.createElement('li');
-    el.innerText = item.fullName;
-    listEl.appendChild(el);
+    //el.innerText = item.fullName;
+    //listEl.appendChild(el);
 
     var a = document.createElement('a'); 
-    var link = document.createTextNode(item.states);
+    //We need to grab the link of the page
+    //this is where we need to pull the image
+    //Creating an image element
+    var img = document.createElement('img');
+    let arrayOfImages= item.images;
+    let dictAtArray0 = arrayOfImages[0]
+    let imageUrl = dictAtArray0['url']
+    //Assiging the URL for images
+    img.src = imageUrl;
+    img.classList = 'boxNotJS';
+    var link = document.createTextNode(item.fullName);
     a.appendChild(link); 
-    a.title = item.states; 
-    a.href = "secondPage.html"; 
-    listEl.appendChild(a); 
+    a.title = item.fullName; 
+    a.href = item.url; 
+    a.target = "_blank";
+    el.appendChild(a);
+    el.appendChild(img)
+    listEl.appendChild(el); 
   });
  
 }
@@ -121,7 +106,7 @@ function markerPlace(array, map) {
 
 
 async function getData() {
-  const url = 'https://developer.nps.gov/api/v1/parks?limit=400&api_key=CmhsFh8PrYpbQG2jmRIqjSZdhG8LnY0yy10nhguh'; // remote URL! you can test it in your browser
+  const url = 'https://developer.nps.gov/api/v1/parks?limit=500&api_key=CmhsFh8PrYpbQG2jmRIqjSZdhG8LnY0yy10nhguh'; // remote URL! you can test it in your browser
   const data = await fetch(url); // We're using a library that mimics a browser 'fetch' for simplicity
   const json = await data.json(); // the data isn't json until we access it using dot notation
   

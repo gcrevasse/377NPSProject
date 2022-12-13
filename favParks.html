@@ -5,15 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>National Park Project</title>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-    crossorigin=""/>
     <link rel="stylesheet" href="style.css" />
-     <!-- Make sure you put this AFTER Leaflet's CSS -->
-     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
-    crossorigin=""></script>
   </head>
   <body>
     <div class="wrapper">
@@ -33,30 +25,126 @@
           </div>
           <hr>
           <div class="box global">
-            <h3> <a href="favParks.html">My Favorite Parks</a></h3>
+            <h3> <a href="favParks.html">Top 5 National Parks</a></h3>
           </div>
           <hr>
         </div>
       <hr>
       </div>
       <div class="container">
-        <div class="boxNotJS">
-            <h2>Here are my top 5 favorite parks:</h2>
-            <div class="right_section box">
+        <div class="parks_box box">
+            <h3>Top 5 Most Visited National Parks:</h3>
+            <hr>
+            <div>
                 <ol>
-                    <li><a href="https://www.nps.gov/acad/index.htm">Acadia National Park</a>
-                        <div class="boxNotJS">
-                        <a target="_blank" href="https://www.nps.gov/acad/index.htm">
-                        <img src="https://www.nps.gov/common/uploads/structured_data/3C7B45AE-1DD8-B71B-0B7EE131C7DFC2F5.jpg">
+                    <li><a href="https://www.nps.gov/grsm/index.htm" target="_blank">Great Smoky Mountains National Park</a>
+                        <div>
+                        <a target="_blank" href="https://www.nps.gov/grsm/index.htm">
+                        <img src="https://www.nps.gov/common/uploads/structured_data/3C80F6C9-1DD8-B71B-0B33F35922A21B3B.jpg" class="box parksIMG">
                         </a>
-                    </div>
+                        </div>
+                        <div>
+                            States:
+                            <ul>
+                                <li>TN - Tennessee</li>
+                                <li>NC - North Carolina</li>
+                            </ul>
+                            Enterance Fee:
+                            <ul>
+                                <li>Daily: $5</li>
+                                <li>Up to 7 Days: $15</li>
+                                <li>Annual: $40</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="https://www.nps.gov/zion/index.htm" target="_blank">Zion National Park</a>
+                        <div>
+                            <a target="_blank" href="https://www.nps.gov/zion/index.htm">
+                            <img src="https://www.nps.gov/common/uploads/structured_data/3C7F0098-1DD8-B71B-0B6C0191D7391384.jpg" class="box parksIMG">
+                            </a>
+                            </div>
+                            <div>
+                                States:
+                                <ul>
+                                    <li>UT - Utah</li>
+                                </ul>
+                                Enterance Fee:
+                                <ul>
+                                    <li>Private Vehicle - Valid for 7 days: $35</li>
+                                    <li>Motorcycle - Valid for 7 days: $30</li>
+                                    <li>Per Person - Valid for 7 days: $20</li>
+                                    <li>Zion Annual Pass: $70</li>
+                                </ul>
+                            </div>
+                    </li>
+                    <li><a href="https://www.nps.gov/yell/index.htm" target="_blank">Yellowstone National Park</a>
+                        <div>
+                            <a target="_blank" href="https://www.nps.gov/yell/index.htm">
+                            <img src="https://www.nps.gov/common/uploads/structured_data/3C7D5920-1DD8-B71B-0B83F012ED802CEA.jpg" class="box parksIMG">
+                            </a>
+                            </div>
+                            <div>
+                                States:
+                                <ul>
+                                    <li>ID - Idaho</li>
+                                    <li>MT - Montana</li>
+                                    <li>WY - Wyoming</li>
+                                </ul>
+                                Enterance Fee:
+                                <ul>
+                                    <li>Private Vehicle - Valid for 7 days: $35</li>
+                                    <li>Motorcycle - Valid for 7 days: $30</li>
+                                    <li>Per Person - Valid for 7 days: $20</li>
+                                    <li>Yellowstone National Park Annual Pass: $70</li>
+                                </ul>
+                            </div>
+                    </li>
+                    <li><a href="https://www.nps.gov/grca/index.htm" target="_blank">Grand Canyon National Park</a>
+                        <div>
+                            <a target="_blank" href="https://www.nps.gov/grca/index.htm">
+                            <img src="https://www.nps.gov/common/uploads/structured_data/3C7B12D1-1DD8-B71B-0BCE0712F9CEA155.jpg" class="box parksIMG">
+                            </a>
+                            </div>
+                        <div>
+                            States:
+                            <ul>
+                                <li>AZ - Arizona</li>
+                            </ul>
+                            Enterance Fee:
+                            <ul>
+                                <li>Private Vehicle - Valid for 7 days: $35</li>
+                                <li>Motorcycle - Valid for 7 days: $30</li>
+                                <li>Per Person - Valid for 7 days: $20</li>
+                                <li>Grand Canyon National Park Annual Pass: $70</li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="https://www.nps.gov/romo/index.htm" target="_blank">Rocky Mountain National Park</a>
+                        <div>
+                            <a target="_blank" href="https://www.nps.gov/romo/index.htm">
+                            <img src="https://www.nps.gov/common/uploads/structured_data/042E8A3D-A479-4A06-1FE0E1146F011A02.jpg" class="box parksIMG">
+                            </a>
+                            </div>
+                        <div>
+                            States:
+                            <ul>
+                                <li>CO - Colorado</li>
+                            </ul>
+                            Enterance Fee:
+                            <ul>
+                                <li>1-Day Vehicle Entrance Pass: $30</li>
+                                <li>7-Day Vehicle Entrance Pass: $35</li>
+                                <li>1-Day Motorcycle Entrance Pass: $25</li>
+                                <li>7-Day Motorcycle Entrance Pass: $30</li>
+                                <li>1-Day Per Person Entrance Pass: $15</li>
+                                <li>Rocky Mountain National Park Annual Pass: $70</li>
+                            </ul>
+                        </div>
                     </li>
                 </ol>
             </div>
-            
         </div>
       </div>
     </div>
-   
   </body>
 </html>
