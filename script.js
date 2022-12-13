@@ -2,7 +2,7 @@
 function getRandomIntInclusive(min, max) {
   const newMin = Math.ceil(min);
   const newMax = Math.floor(max);
-  return Math.floor(Math.random() * (newMax - newMin) + newMin); // The maximum is exclusive and the minimum is inclusive
+  return Math.floor(Math.random() * (newMax - newMin) + newMin); 
 }
  
 
@@ -21,9 +21,6 @@ function injectHTML(list) {
   list.forEach((item) => {
     itemState = item.states;
     const el = document.createElement('li');
-    //el.innerText = item.fullName;
-    //listEl.appendChild(el);
-
     var a = document.createElement('a'); 
     //We need to grab the link of the page
     //this is where we need to pull the image
@@ -58,8 +55,6 @@ function processParks(list) {
 
       }); */
   return newArray;
-
-
 }
 
 function filterList(list, filterInputValue) {
@@ -67,7 +62,6 @@ function filterList(list, filterInputValue) {
     if (!item.fullName) {
       return;
     }
-
     const lowerCaseName = item.fullName.toLowerCase();
     const lowerCaseQuery = filterInputValue.toLowerCase();
     const lowerCaseState = item.states.toLowerCase();
@@ -111,17 +105,14 @@ async function getData() {
   const json = await data.json(); // the data isn't json until we access it using dot notation
   
   const reply = json.data.filter((item) => Boolean(item.fullName));
-  console.log(json.data, ' THIS IS THE reply');
   return reply;
 }
 
 async function mainEvent() {
-   const pageMap = initMap();
-  // the async keyword means we can make API requests
+  const pageMap = initMap();
   const form = document.querySelector('.main_form'); // get your main form so you can do JS with it
   const submit = document.querySelector('#get-parks'); // get a reference to your submit button
   const loadAnimation = document.querySelector('.lds-ellipsis'); // get a reference to our loading animation
-  const chartTarget = document.querySelector('#myChart');
   submit.style.display = 'none'; // let your submit button disappear
   const chartData = await getData();
   let currentList = [];
@@ -136,7 +127,6 @@ async function mainEvent() {
     markerPlace(newFilteredList, pageMap);
   });
  
-
   form.addEventListener('submit', (submitEvent) => {
     submitEvent.preventDefault();
       currentList = processParks(chartData);

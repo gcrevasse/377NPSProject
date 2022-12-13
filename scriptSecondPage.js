@@ -1,12 +1,4 @@
 
-function getRandomIntInclusive(min, max) {
-  const newMin = Math.ceil(min);
-  const newMax = Math.floor(max);
-  return Math.floor(Math.random() * (newMax - newMin) + newMin); // The maximum is exclusive and the minimum is inclusive
-}
-
-
-
 function injectHTML(list) {
   console.log('fired injectHTML');
   const target = document.querySelector('#parks_list');

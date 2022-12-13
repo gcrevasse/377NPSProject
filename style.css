@@ -26,8 +26,6 @@ body {
 }
 
 
-
-
 a {
   display: inline-block;
   text-decoration: none;
@@ -44,16 +42,6 @@ h2, h3 {
 form {
   accent-color: hsla(120, 100%, 50%, 0.482);
 }
-
-/*
-  - These styles use 'class names'
-  - You can apply them by using the 'class' attribute on your HTML
-  - like this: <div class="wrapper">
-  - note that the period vanishes there!
-*/
-/* div {
-  border: 2px dashed black;
-} */
 
 .wrapper {
   min-height: 100vh;
@@ -83,13 +71,6 @@ form {
   
   
 }
-
-
-/*
-  This rule implies that the H1 tag lives within another HTML tag
-  It "inherits" some rules from the above
-  Those rules won't apply to an h1 that's outside a block with the class of 'header'
-*/
 
 .header h1 {
   display: block;
@@ -397,8 +378,6 @@ form label {
 /* How To Write A Media Query For Small Screens */
 
 @media only screen and (max-width: 736px){
-    /* Rules in here will only apply when a screen is the correct size */
-    /* check it out by using your developer tools to shrink your screen-size */
     .box {
       width: inherit;
     }
@@ -469,7 +448,6 @@ form label {
 .global_nav {
   align-items: left;
   display: flex;
-  
   margin: 1rem;
 
 }
@@ -477,14 +455,6 @@ form label {
 * {
   box-sizing: border-box;
 }
-
-
-
-
-/* 
-    New code bonus: pure CSS data loading icon
-    This comes from loading.io/css - it's nice to show that something is happening!
-*/
 
 .lds-ellipsis {
     display: inline-block;
