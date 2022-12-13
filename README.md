@@ -3,7 +3,7 @@ National Park Project
 Target Broswers:
 
 
-Which API?
+# Which API?
 I used the National Park Services API found here: https://www.nps.gov/subjects/developer/api-documentation.htm
 
 This project visualization is an interactive map.
